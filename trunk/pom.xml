@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <parent>
+        <artifactId>open-dm-ds</artifactId>
+        <groupId>mural</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>mural</groupId>
+    <artifactId>axiondb</artifactId>
+    <name>axiondb</name>
+    <version>${mural.currentVersion}</version>
+    <description>axiondb description</description>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <!--execution>
+                        <id>${project.artifactId}-ant-junit</id>
+                        <phase>test</phase>
+                        <goals><goal>run</goal></goals>
+                        <configuration>
+                            <tasks>
+                                <patternset id="jbicomps.junit.test.patternset">
+                                    <include name="org/axiondb/AllTest.java"></include>
+                                </patternset>
+                                
+                                <ant antfile="${SRCROOT}/global-common/m2.ant" dir="${project.build.sourceDirectory}/.." target="run_junit">
+                                    <property name="maven.test.skip" value="${maven.test.skip}"></property>
+                                    <property name="maven.repo.local" value="${maven.repo.local}"></property>
+                                    <property name="project.artifactId" value="${project.artifactId}"></property>
+                                    <property name="project.build.directory" value="${project.build.directory}"></property>
+                                    <property name="project.build.testSourceDirectory" value="${project.build.testSourceDirectory}"></property-->
+                                    
+                                    <!-- no junit system properties are needed: -->
+                                    <!--propertyset id="jbicomps.junit.sysproperties"></propertyset>
+                                    
+                                    <reference refid="maven.test.classpath"></reference>
+                                    <reference refid="jbicomps.junit.sysproperties"></reference>
+                                    <reference refid="jbicomps.junit.test.patternset"></reference>
+                                </ant>
+                            </tasks>
+                        </configuration>
+                    </execution-->
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!--version>RELEASE</version-->
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin> 
+                <groupId>org.codehaus.mojo</groupId> 
+                <artifactId>build-helper-maven-plugin</artifactId> 
+                <executions> 
+                    <execution> 
+                        <id>add-source</id> 
+                        <phase>generate-sources</phase> 
+                        <goals> 
+                            <goal>add-source</goal> 
+                        </goals> 
+                        <configuration> 
+                            <sources> 
+                                <source>${basedir}/external/src</source> 
+                                <source>${basedir}/src</source> 
+                            </sources> 
+                            <artifacts> 
+                                <artifact> 
+                                    <file>*</file> 
+                                    <type>java</type> 
+                                    <classifier>required</classifier> 
+                                </artifact> 
+                            </artifacts> 
+                        </configuration> 
+                    </execution> 
+                    
+                </executions> 
+            </plugin> 
+            
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>sbme</artifactId>
+			<version>1.0</version>
+        </dependency>
+        
+        <!-- TEST DEPENDENCIES-->
+        <!--dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <artifactId>ant-junit</artifactId>
+            <scope>test</scope>
+        </dependency-->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <scope>test</scope>
+            <version>2.1.1</version>
+        </dependency> 
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <scope>test</scope>
+            <version>1.1</version>
+        </dependency> 
+    </dependencies>
+</project>
