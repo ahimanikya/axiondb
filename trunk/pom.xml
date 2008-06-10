@@ -14,6 +14,28 @@
     <description>axiondb description</description>
     <build>
         <plugins>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<!-- Follownig execution tasks should be removed once these artifacts are available
+					     in public maven repositories (nilesh_apte 6/10/2008)-->
+					<execution>
+                        <id>install-sbme.jar</id>
+                        <phase>clean</phase>
+                        <goals><goal>install-file</goal></goals>
+                        <configuration>
+                            <generatePom>true</generatePom>
+                            <packaging>jar</packaging>
+                            <groupId>com.sun</groupId>
+                            <artifactId>sbme</artifactId>
+                            <version>1.0</version>
+                            <file>${basedir}/external/lib/sbme.jar</file>
+                        </configuration>
+                    </execution>
+					<!-- (nilesh_apte 6/10/2008) -->
+				</executions>
+			</plugin>
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
